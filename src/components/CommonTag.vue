@@ -36,7 +36,7 @@ export default {
 
     changeMenuTag(item) {
       this.$router.push({ name: item.name });
-      // this.$store.commit("selectMenu", item);
+      this.$store.commit("selectMenu", item);
     }
   }
 };
@@ -45,7 +45,7 @@ export default {
 <style lang="scss" scoped>
 .tags {
   .el-tag {
-    margin: 10px;
+    margin: 10px 10px 0 10px;
     cursor: pointer;
   }
 }

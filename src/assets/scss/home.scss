@@ -1,0 +1,75 @@
+.home{
+    .user{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+        &-info{
+
+            .name{
+                font-size: 50px;
+                margin-bottom: 10px;
+            }
+            .access{
+                color: #999;
+                font-size: 14px;
+            }
+        }
+        img{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+    }
+    .login-info{
+        p{
+            margin-left: 20px;
+            line-height: 40px;
+            color: #999;
+            span{
+                margin-left: 60px;
+            }
+        }
+    }
+    .r-header{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .el-card{
+            width: 32%;
+            margin-bottom: 20px;
+        }
+        .icon{
+            width: 80px;
+            height: 80px;
+            font-size: 30px;
+            line-height: 80px;
+            color: #fff;
+            text-align: center;
+        }
+        .detail{
+            margin-left: 15px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            .price{
+                font-size: 35px;
+                margin-bottom: 10px;
+            }
+            .txt{
+                font-size: 14px;
+                color: #666;
+                text-align: center;
+            }
+        }
+    }
+    .r-footer{
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        .el-card{
+            width: 48%;
+        }
+    }
+}
