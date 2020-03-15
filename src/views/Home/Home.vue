@@ -50,10 +50,14 @@
       </el-card>
       <div class="r-footer">
         <el-card shadow="hover">
-          <echart style="height:260px;"></echart>
+          <echart :chartData="echartData.user" style="height:260px;"></echart>
         </el-card>
         <el-card shadow="hover">
-          <echart style="height:260px;"></echart>
+          <echart
+            :chartData="echartData.video"
+            :isAxisChart="false"
+            style="height:260px;"
+          ></echart>
         </el-card>
       </div>
     </el-col>
@@ -132,6 +136,7 @@ export default {
       this.$http.get("/home/getData").then(res => {
         res = res.data;
         this.tableData = res.data.tableData;
+        console.log(res);
         // 订单折线图
         const order = res.data.orderData;
         this.echartData.order.xData = order.date;
@@ -144,6 +149,28 @@ export default {
             data: order.data.map(item => item[key]),
             type: "line"
           });
+        });
+
+        // 用户柱状图
+        const user = res.data.userData;
+        this.echartData.user.xData = user.map(item => item.date);
+        this.echartData.user.series.push({
+          name: "新增用户",
+          type: "bar",
+          data: user.map(item => item.new)
+        });
+
+        this.echartData.user.series.push({
+          name: "活跃用户",
+          type: "bar",
+          barGap: 0,
+          data: user.map(item => item.active)
+        });
+
+        // 饼状图
+        this.echartData.video.series.push({
+          data: res.data.videoData,
+          type: "pie"
         });
       });
     }

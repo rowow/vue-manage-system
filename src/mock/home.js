@@ -72,11 +72,11 @@ export default {
         // 饼图
         videoData: [
           {
-            name: "SpringBoot",
+            name: "springboot",
             value: Mock.Random.float(1000, 10000, 0, 2)
           },
           {
-            name: "Vue",
+            name: "vue",
             value: Mock.Random.float(1000, 10000, 0, 2)
           },
           {
@@ -88,15 +88,11 @@ export default {
             value: Mock.Random.float(1000, 10000, 0, 2)
           },
           {
-            name: "Java",
+            name: "Redis",
             value: Mock.Random.float(1000, 10000, 0, 2)
           },
           {
-            name: "SpringBoot",
-            value: Mock.Random.float(1000, 10000, 0, 2)
-          },
-          {
-            name: "SpringBoot",
+            name: "React",
             value: Mock.Random.float(1000, 10000, 0, 2)
           }
         ],

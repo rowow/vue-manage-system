@@ -7,6 +7,8 @@
     active-text-color="#ffd04b"
     :collapse="isCollapse"
   >
+    <h3 v-show="!isCollapse">模拟后台管理系统</h3>
+    <h3 v-show="isCollapse">后台</h3>
     <el-menu-item
       :index="item.path"
       v-for="item in noAsideChildrenData"
@@ -105,5 +107,10 @@ export default {
 .el-menu {
   height: 100%;
   border: none;
+  h3 {
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
 }
 </style>
