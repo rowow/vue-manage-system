@@ -32,4 +32,7 @@ export default {
   width: 200px;
   min-height: 400px;
 }
+.el-main {
+  padding-top: 0;
+}
 </style>
