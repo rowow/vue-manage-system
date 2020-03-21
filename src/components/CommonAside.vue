@@ -22,15 +22,16 @@
     <el-submenu index="1" v-for="(item, i) in hasAsideChildrenData" :key="i">
       <template slot="title">
         <i :class="'el-icon-' + item.icon"></i>
-        <span>{{ item.label }}</span>
+        <span slot="title">{{ item.label }}</span>
       </template>
       <el-menu-item-group
         v-for="(subItem, subIndex) in item.children"
         :key="subIndex"
       >
         <template slot="title"></template>
-        <el-menu-item :index="subItem.path" @click="clickMenu(subItem)"
-          >{{ subItem.label }}
+        <el-menu-item :index="subItem.path" @click="clickMenu(subItem)">
+          <i :class="'el-icon-' + subItem.icon"></i>
+          <span slot="title">{{ subItem.label }}</span>
         </el-menu-item>
       </el-menu-item-group>
     </el-submenu>
@@ -42,13 +43,18 @@ export default {
   computed: {
     //   判断有没有子集children的数据
     noAsideChildrenData() {
-      return this.asideMenuData.filter(item => !item.children);
+      // return this.asideMenuData.filter(item => !item.children);
+      return this.menu.filter(item => !item.children);
     },
     hasAsideChildrenData() {
-      return this.asideMenuData.filter(item => item.children);
+      // return this.asideMenuData.filter(item => item.children);
+      return this.menu.filter(item => item.children);
     },
     isCollapse() {
       return this.$store.state.menu.isCollapse;
+    },
+    menu() {
+      return this.$store.state.menu.menu;
     }
   },
   methods: {
